@@ -1,0 +1,146 @@
+/*========================================
+        Mini-Cart- by Zhan 18/10/2018
+ ========================================*/
+
+ @mixin mini-cart($font-main-1, $font-main-2, $color_boder, $color_black, $color_white, $color-two, $color-three, $color-four, $color-mn-ac) {
+
+    .mini-cart-container{max-width: 480px; height: 100%; position: fixed; background: $color_white; right: -666px; top: 0; z-index: 99998;}
+    
+    .bg-cart { z-index: 99997; background: $color_black; position: fixed; top: 0; left: 0; right: 0; bottom: 0; opacity: 0.5; display: none;}
+    
+    .mini-cart-header{
+        background: $color-three; padding: 10px; border-bottom: 1px solid $color_boder;
+        .close-cart{
+            font-size: 24px; text-align: left;
+            .mdi-close:before{margin-bottom: 5px;}
+        }
+        .title-cart{font-family: $font-main-2; font-size: 16px; text-align: center; text-transform: capitalize; margin-top:5px; color: $color-mn-ac;}
+        .discount-code{text-align: right; text-transform: uppercase; font-size: 11px; margin-top: 8px; cursor: pointer; color: $color-main-1;}
+    }
+    
+    .ship-note { 
+        background:#EBEBEB; border-bottom:solid 1px rgba(0,0,0,0.1); font-size:13px; padding: 5px 15px; margin-bottom:5px;
+        a { padding:0; margin:0;  
+            span{ font-size: 11px;  }
+        }
+        img { width:38px; margin-right:10px; float:left; margin-bottom: 10px;   }
+    }
+
+    .discount-form{
+        padding: 10px 20px 10px 20px; display: inline-block; opacity: 1.0; margin-bottom:10px; width:100%;
+        .discount-form-contain{position: relative; width:calc(100% - 50px); float:left; }
+        input{
+            padding: 25px 20px; border-radius: 2px;
+            &:focus{outline: none !important; border:1px solid $color-main-1; box-shadow: 0 0 2px $color-main-1;}
+        }
+       .btn-discount{padding: 7px 20px; background: $color-mn-ac; color: $color_white; width: 100px; text-align: center; text-transform: uppercase; position: absolute; top: 8px; right: 10px;}
+        .i-close-form{padding-top: 10px; text-align: center; float:left; width:40px; margin-left:10px;}
+    }
+    
+    
+    .mini-cart-content{margin: 10px 20px 0 20px; height: auto;}
+    
+    .minicart-promotions{
+        border: $color-two 1px solid; padding: 10px 20px;
+        .minicart-promotion-code{font-size: 9px; color: $color-two; text-transform: uppercase;}
+        .minicart-promotion-display-name{font-size: 12px; font-weight: 700; color: $color-two; text-transform: uppercase;}
+    }
+
+    .product-item{
+        padding: 15px 0; padding-top:0;  height: auto; position: relative; width: 100%; display: inline-block; 
+        &:last-child{border-bottom: none;}
+        .product-table-col-img{width: 20%; float: left; border: 1px solid $color_boder;}
+        .product-info{
+            width: 80%; float: right; padding-left: 10px;
+            .info-top{
+                .remove-item{float: right;}
+            }
+            .info-bottom{
+                 .product-quantity{
+                    display: inline-flex; line-height: 26px; margin-top: 15px; width: 50%; 
+                    .quantity-num{margin: 0 15px; font-size: 15px;}
+                    .minus, .plus{ border: 1px solid $color_boder; width: 28px; height: 28px; font-size: 20px; font-family: $font-main-2; border-radius: 5px; -moz-border-radius: 5px;  -webkit-border-radius: 5px;  text-align: center; cursor: pointer; background: $color_white; transition: background 0.5s;
+                     &:hover{background: $color-three;}
+                    }
+                }
+                .product-price{
+                        padding-top: 5px; text-align: right; width: 50%; float: right;
+                        .remove-item{margin-bottom: 30px;}
+                        .price-original{
+                            .price-item{text-decoration: line-through; font-size: 12px;}
+                            .price-currency{font-size: 9px; margin-bottom: 5px;}
+                        }
+                        .price-final{
+                            color: $color-two; margin-top:12px;
+                            .price-item{font-family:$font-main-2;  font-size:18px;}
+                        }
+                    }
+            }
+        }
+
+    }
+    
+    .mini-cart-footer{
+        padding: 20px; border-top: 2px solid $color_boder;
+        .discount-total{
+            color: $color-two; font-family: $font-main-2; padding-bottom: 10px; margin-bottom: 10px; color:#FF5757; 
+            .price-discount{
+                color: $color-two; text-align: right; font-weight: 500; color:#FF5757; 
+                .price-currency{
+                    font-size: 9px; font-family: $font-main-1;
+                }
+            }
+        }
+    }
+    
+    .cart-total-final{
+        font-size: 18px;
+        .cart-final-price{
+            text-align: right; font-family: $font-main-2;
+            .price-currency{font-size: 11px; font-family: $font-main-1;}
+        }
+    }
+    
+    .mini-cart-footer{
+        .mini-btn-checkout{
+            width: 100%; text-align: center; background-color: $color-basic; color: $color_white; padding: 15px 50px; clear: both; position: relative; margin: 20px 0 10px 0; -webkit-transition: background 1s;  -moz-transition: background 1s; -o-transition: background 1s; transition: background 1s; background: $color-four; cursor: pointer;
+            &:hover{background: $color-basic;}
+            &::after{content: url("../images/all/jssora05r-white.png"); position: absolute; right: 20px;}
+            a{color: $color-mn-ac; text-transform: uppercase; font-family: $font-main-2; font-size: 15px; font-style:italic;
+            &:hover{color: $color-white;}}
+        }
+        .monthly-payment{ text-align: center;}
+    } 
+
+    @media screen and (max-width: 500px){
+        .mini-cart-container{width: 100%;}
+    }
+
+    @media screen and (max-width: 420px){
+        .mini-cart-container .mini-cart-header{
+            .discount-code{width: 40%;}
+            .title-cart{width: 60%;}
+            .close-cart{position: absolute; width: 40%; z-index: 99;;}
+        } 
+        .discount-form-contain{width: calc(100% - 20px);}
+        .discount-form{
+            position: absolute; top: 50px; background: #f9f9f9; z-index: 99; display: none;
+            .i-close-form{width: 10px;}
+        }
+        .discount-label, .cart-total-label{width: 70%;}
+        .price-discount, .cart-final-price{width: 30%;}
+        .mini-cart-footer{
+            padding: 10px 0; clear: both;
+            .mini-btn-checkout{margin-top: 10px;}
+            .discount-total{margin-bottom: 0;}
+            .mini-btn-checkout{padding: 10px 50px;}
+        }
+        .product-item{padding-bottom: 30px;}
+        .ship-note{margin-bottom: 20px;}
+    }
+    
+} 
+
+/* End Mini Cart 
+======================================================================*/ 
+

@@ -1,0 +1,560 @@
+// @import "../css/all/lightgallery.min.css";
+
+
+
+// @include  desF_list($color-main-1,$color-main-2);
+// @include  tab-info($color-main-1,$color-main-2);
+// @include  tab_product($color-main-1,$color-main-2);
+// @include  slide_gallery($color-main-1);					// slide detail
+
+@mixin detail_page($color-basic,$color-main-1,$color-main-2,$Desktop,$Mobile){
+
+$mode-Desktop:$Desktop;
+$mode-Mobile:$Mobile;
+
+
+/* call css slide gallery
+=========================================================*/
+
+@include  slide_gallery($color-main-1);
+
+/* call css Des_list
+=========================================================*/
+
+@include  desF_list($color-basic,$color-main-1,$color-main-2);
+
+
+/* call css tab info
+=========================================================*/
+
+@include  tab-info($color-main-1,$color-main-2);
+
+
+/* call css tab products
+=========================================================*/
+
+@include  tab_product($color-main-1,$color-main-2,$mode-Desktop,$mode-Mobile);
+
+
+
+// color arrow of slide 
+$color-arrow-l-r:$color-main-2;    
+
+// color arrow of slide when hover 
+$color-arrow-l-r-hv:$color-main-1;
+
+// color icon-sale
+$color-icon-sale:$color-main-2;
+
+// color icon-new
+$color-icon-new:$color-main-2;
+
+
+/*-- css slide product tabs page ---*/
+
+.slide-tab { 
+    margin-left:0; left:-15px; right:-15px; width: calc(100% + 30px); bottom:auto; top:30%;         
+
+    .owl-nav  { 
+        display:block; 
+
+        .owl-next {  
+            right:-20px; top:70px ;   
+
+            &:after{ text-indent:0; content: "\F142"; font: 60px/1.0 "Material Design Icons"; color:rgba($color-arrow-l-r,0.5); width: 0; height: 0; position: absolute; left: 0; top: 0;}
+
+            &:hover:after { color:$color-arrow-l-r-hv;  }
+        }
+		.owl-next.disabled{display:none}
+        .owl-prev {  
+            left:-30px; top:70px;  
+
+            &:after{ text-indent:0;  content: "\F141"; font: 60px/1.0 "Material Design Icons"; color:rgba($color-arrow-l-r,0.5); width: 0; height: 0; position: absolute; left: 0; top: 0;}
+
+            &:hover:after { color:$color-arrow-l-r-hv; }
+        }
+		.owl-prev.disabled{display:none}
+    }
+
+    .owl-prev, .owl-next { cursor: pointer; position: absolute; height: 60px; width: 60px; top: 90px;  overflow: hidden;  }
+
+    .wr-item{padding-bottom:0}
+
+}
+
+
+		
+			/*===== css RWD =====*/
+
+					@media only screen and (max-width:1200px){
+						
+						/*.slide-tab .owl-nav .owl-prev{ left:0!important; }
+						.slide-tab .owl-nav .owl-next{ right:5px; }*/
+						
+					
+					}
+
+					@media only screen and (max-width: $mode-Mobile){
+					
+					.slide-tab { width:100%; left:0; right:0 }
+					.slide-tab .wr-item { margin:0 }		
+					}
+
+
+/* Css Detail Page   
+=========================================================*/
+.wr-detail-new { width:100%; float:left; margin-bottom:15px;}
+.wr-detail-new .col-left-dt { width:570px; margin:0; padding:0; margin-right:50px; float:left; position:relative}
+.wr-detail-new .col-right-dt {  width:calc(100% - 570px - 50px); margin:0; padding:0; float:left; position:relative}
+.wr-detail-new .col-right-dt h1 { font-size: 30px; /*line-height: 24px;*/ margin-bottom: 20px; text-transform:none; font-weight:bold; margin-top:0; color:$color-main-1;}
+.wr-detail-new .col-right-dt .wr-line { float:left; width:100%; margin:10px 0 0 0; border-top:1px solid #e4e4e4; padding:15px 0 0 0;}
+.wr-detail-new .col-right-dt .wr-line .wr-prices { float:left; margin-right:30px; }
+.wr-detail-new .col-right-dt .wr-line .wr-prices .lable-instock { float:left; text-transform:uppercase; font-size:11px; text-align:left; width:auto; color:#444; margin-bottom:2px;}
+.wr-detail-new .col-right-dt .wr-line .wr-prices .instock-prices { float:left; text-transform:uppercase; font-size:14px; text-align:left; width:auto; color:#777; clear:both; line-height:25px;}
+.wr-detail-new .col-right-dt .wr-line .wr-prices .instock-prices img { width:25px; height:25px; float:left; margin-right:10px; max-width:100%;}
+.wr-detail-new .col-right-dt .wr-line .wr-prices .lable-regus { float:left; text-transform:uppercase; font-size:11px; text-align:left; width:auto; color:#777; margin-bottom:2px;}
+.wr-detail-new .col-right-dt .wr-line .wr-prices .regu-prices { float:left; text-transform:uppercase; font-size:37px; text-align:left; width:auto; color:$color-main-1; clear:both; font-family:$font-main-2}
+.wr-detail-new .col-right-dt .wr-line .wr-prices .lable-sales { float:left; text-transform:uppercase; font-size:11px; text-align:left; width:auto; color:#444; margin-bottom:2px;}
+.wr-detail-new .col-right-dt .wr-line .wr-prices .sale-prices { float:left; text-transform:uppercase; font-size:18px; text-align:left; width:auto; color:#777; clear:both; padding-top:15px; text-decoration:line-through}
+.wr-detail-new .col-right-dt .wr-line .wr-prices .sale-prices-per { float:left; text-transform:uppercase; font-size:18px; text-align:left; width:auto; color:#777; clear:both; padding-top:15px;}
+.wr-detail-new .col-right-dt .wr-line .wr-kalana { float:left; max-width:100%; text-align:left;}
+.wr-detail-new .col-right-dt .wr-line .wr-kalana a{ color:#000;}
+.wr-detail-new .col-right-dt .wr-line .wr-kalana a:hover { color:$color-main-1; }
+.wr-detail-new .col-right-dt .wr-line .wr-kalana h2 { font-size:15px; font-weight:normal; display:block; float:left; margin:0px; margin-bottom:5px; line-height:16px; width:100%; display:block}
+.wr-detail-new .col-right-dt .wr-line .wr-kalana span { font-size:14px; display:block; float:left; color:#999; margin-bottom:5px; display:block; width:100%;}
+
+/*-- status product  -- */
+
+.wr-detail-new .col-right-dt ul.status { padding:0; margin:5px 0 0 0; float:left;	 }
+.wr-detail-new .col-right-dt ul.status li { list-style:none; display:inline-block ; margin:0 8px 0 0; text-transform:uppercase;  }
+
+
+
+/*-- wr-detail desciription -- */
+
+
+.cartPS { float: right; margin: 0 0 10px; padding-bottom: 0; width: auto; }
+.cartPS .variations_button span { width:auto; float:left; margin-top:20px;}
+.cartPS .variations_button { float:left;}
+.cartPS .buttons_added { float: left; margin: 0 10px 0; }
+.cartPS .buttons_added input.minus { background: none repeat scroll 0 0 $color-main-1; cursor: pointer; margin:0;border-radius:0;}
+.cartPS .buttons_added input.plus { background: none repeat scroll 0 0 $color-main-1; cursor: pointer; margin:0; border-radius:0;}
+.cartPS .buttons_added input.minus:hover, .cartPS .buttons_added input.plus:hover { background: none repeat scroll 0 0 $color-main-2; }
+.cartPS .buttons_added input.input-text.qty.text {border-radius:0}
+.cartPS .buttons_added input.input-text.qty.text, .cartPS .buttons_added input.minus, .cartPS .buttons_added input.plus { border: medium none; float: left; font-size: 18px; height: 34px !important; line-height: 34px;  padding: 0; position: relative; text-align: center; width: 30px; }
+.variations_button { float: left; width:auto; }
+.single_add_to_cart_button {  color:#fff;  font-size:14px; border:none; cursor: pointer;  margin:0; padding:0; float:right; width:auto; text-align:center;min-height:34px;line-height:34px;}
+
+.single_add_to_cart_button .add_to_cart_button{border:none;background:$color-main-1;text-transform:uppercase;min-width:135px;/*padding:0;*/height:34px;}
+.single_add_to_cart_button .add_to_cart_button:hover{background: $color-main-2}
+.single_add_to_cart_button .add_to_cart_button[disabled]{border: none;background:#cdcdcd;cursor: no-drop;}
+.single_add_to_cart_button .add_to_cart_button[disabled]:hover{background:#cdcdcd;}
+
+.view-cart { background: rgba(0, 0, 0, 0) url(../images/all/icon-cart-sm.png) no-repeat scroll left 2px; float: left; line-height: 30px;  margin-top: 14px; padding-left: 30px;}
+
+.var-prop-icon[disabled="disabled"]:after, .selectedVariantValue[disabled="disabled"]:after{    position: absolute;content: "";background: rgba(0,0,0,0.5);left: 0;top: 0;bottom: 0;right: 0;background-image: url(/Claw/Sites/Default/Modules/EShop/Images/cross1.png);background-position: center;height:30px;cursor:no-drop}
+
+.tt-so { width:100%; float:left; margin-bottom:5px;}
+
+.social-dt { width:100%; float:left; list-style:none; margin-top:7px; padding:0}
+.social-dt li { float:left; margin-right:7px;}
+.social-dt li a{  @include border-radius(50%); overflow:hidden; float:left; background:rgba($color-main-1,1.0);  vertical-align:middle; text-align:center; padding:2px;  }
+.social-dt li a:hover { background:rgba($color-main-2,1.0)}
+.social-dt li a i {  font-size:20px; padding:3px; color:#fff; width:30px; height:30px; }
+
+
+.cartPS .buttons_added input.minus:hover, .cartPS .buttons_added input.plus:hover { background: $color-main-2 none repeat scroll 0 0;}
+.cartPS .buttons_added input.minus, .cartPS .buttons_added input.plus { color:#fff;}
+
+#variant-select-box {float: left;position: relative;}
+.wr-box-line-dt {float: left;padding-bottom: 15px;width: 100%;}
+#variant-select-box .box-title {float: left;width: 100%; line-height:26px;font-weight:bold;}
+.content-box-group {float: left;}
+.var-prop {width: 180px;height:30px;}
+.prop-icon-box{width:100%;float:left;}
+.wr-variant-product .prop-icon-box a.active, .wr-variant-product .prop-icon-box a:hover {border: 1px solid $color-main-1 ;padding: 0px;color:$color-main-1}
+.wr-variant-product .prop-icon-box a {border: 1px solid #d9d8d8;float: left;margin: 0 5px 5px 0;max-height: 32px;min-width: 30px;/*width:30px;*/padding: 0px;position: relative;text-align: center;line-height:30px;}
+.wr-variant-product .prop-icon-box a img{max-width:30px;float:left}
+.wr-detail-new .wr-list-slide img.image-product {width: auto !important;height: auto !important;vertical-align: middle;position: static !important;max-width: 571px;max-height: 430px;cursor: zoom-in;}
+.wr-detail-new .wr-list-slide > div {line-height: 422px;text-align: center;background:#fff;border:1px solid #d7d5d5;}
+
+.checkout-right .info-cart-sku,.checkout-right .info-ship,.checkout-right .wr-cart-sku,.checkout-right .wr-variant-info,.checkout-right .wr-freeshipping{margin-left:10px;width:100%;margin-top:5px;float:left}
+.mini-cart-info .info-cart-sku , .mini-cart-info .wr-select-info, .mini-cart-info .info-ship,.mini-cart-info .wr-variant-info,.mini-cart-info .quantity{float:left;text-align:left!important;width:100%/*font-size:12px;color:#000000*/}
+.info-cart-sku , .col-ct-1 .info-cart-sku,.info-ship{float:left;width:100%;}
+.videoWrapper{display: inline-block;margin-right: 20px;margin-bottom:20px;}
+.contenttab table{table-layout:fixed;width:100%;}
+.contenttab table img{height:auto!important}
+.wr-product-details-related .wr-item-slide-dt{
+	margin-right:20px;width:46%;float:left;margin-bottom:20px!important;
+	
+	&:nth-child(2n){margin:0}
+	h3 { 
+        
+        width:100%; display:inline-block; margin:0;
+
+        a { 
+            
+            margin:0; text-align:center; padding:10px 0; display:block; line-height:24px; font-size:18px; color:$color-basic;  
+
+            &:hover{color:$color-main-1}
+        }
+
+    }
+	.price{color:$color-main-1;font-size:20px}
+}
+.wr-product-details-related .wr-sp-bd{text-align:center}
+.wr-product-details-related .wr-sp-bd .wr-price{text-align:center}
+
+ 
+					/*===== css RWD =====*/
+
+					@media only screen and (max-width: $mode-Desktop){
+					
+					.single_add_to_cart_button { width:auto!important}
+
+					.wr-detail-new .col-left-dt { width:40%; margin-right:2%; }
+					.wr-detail-new .col-right-dt { width:58%; margin-right:0% }
+
+
+					}	
+
+					@media only screen and (max-width:880px){
+
+					.view-cart { width:100%; float:left; margin-bottom:8px; padding-bottom:5px; border-bottom:1px solid #e4e4e4; margin-top:0px;}
+					.cartPS { float:left}
+
+					
+					}
+
+					@media only screen and (max-width: 768px) {
+
+					.wr-detail-new .col-left-dt { width:100%; margin-right:0%; margin-bottom:20px; }
+					.wr-detail-new .col-right-dt { width:100%; }
+					.single_add_to_cart_button { width:auto!important}
+					.view-cart { width:auto; float:left; margin-bottom:0px; padding-bottom:0px; border-bottom:0px solid #e4e4e4; margin-top:14px;}
+					.cartPS { float:right}
+
+					}					
+				
+					@media only screen and (max-width: 768px) {
+
+					.col-left-dt, .col-right-dt { background-color:transparent!important; text-align:left!important}
+					.wr-detail-new .col-right h2 { font-size:18px;}
+
+					}	
+
+
+					@media only screen and (max-width: 490px) {					
+					.view-cart { width:100%; float:left; margin-bottom:8px; padding-bottom:5px; border-bottom:1px solid #e4e4e4; margin-top:0px;}
+					.cartPS { float:left}
+					.wr-detail-new .col-right h2 { font-size:16px;}
+					.cartPS { float:left;width:100%}
+.cartPS .buttons_added{margin-left:0;}
+.single_add_to_cart_button{float:left}
+.videoWrapper iframe{width:100%!important}
+
+					}
+				
+										
+}
+
+
+
+
+/*===============================================
+    css desF-list
+=================================================*/
+
+
+@mixin desF_list($color-basic,$color-main-1,$color-main-2){
+
+
+/* nav */
+.contentNav { width: 100%; padding:0; margin: auto;}
+/* nav */
+.desF { position: relative; display: inline-block; width: 100%; margin-bottom: 0;}
+.desF-list { text-align: left; list-style: none; padding: 0; margin: 0 }
+.desF-item:last-child { margin-right:0px}
+.desF-list .first { margin-left:0!important;}
+.desF-item > a:hover, .desF-item a.active { text-decoration: none }
+.desF-item:hover .desF-submenu { display: block; }
+.contentDes .last { width: 183px }
+
+/* navFigation submenu */
+.desF-submenu { display: block; position: relative; left: 0; width: 100%; list-style: none; padding: 0; margin: 0 }
+.desF-submenu-item { position: relative; margin-bottom: 10px}
+.desF-submenu-item a.email { color: $color-main-1; white-space: pre-line !important; display: block }
+.desF-submenu-item a.email:hover{color: $color-basic}
+.desF-submenu-item a { /*display: block;*/ text-align: left; text-transform: none; padding: 0; color:$color-main-1; font-size: 14px; cursor: pointer; font-weight: normal }
+.desF-item:hover a { background: none }
+.desF-submenu-item a:hover, .desF-submenu-item a.active { background: none; color: $color-basic !important; }
+.desF-submenu2 { display: none; position: absolute; left: 100%; top: 0; width: 100%; list-style: none; padding: 0; margin: 0 }
+.desF-submenu-item:hover .desF-submenu2 { display: block }
+.desF-submenu-item2 a { background: none; display: block; padding: 15px; text-align: left }
+.desF-submenu-item2 a:hover, .desF-submenu-item2 a.active { background: none; text-decoration: none; color: $color-basic }
+.desF-mobile { display: none; cursor: pointer; position: absolute; top: 2px; right: 0; background-size: 18px; height: 47px; width: 40px; }
+.desF-click { position: absolute; top: 1px; right: 0; display: block; height: 35px; width: 40px; cursor: pointer; }
+.name2 { display: none; position: absolute; top: 0; left: 20px; color: #FFF; font-family: oswaldbold; text-transform: uppercase; text-shadow: 0 0 1px #3D3D3B; font-size: 20px; padding-top: 10px }
+.desF-click i { display: block; height: 40px; width: 40px; /*background: url(userfiles/image/graphics/drop.png) no-repeat center center */}
+.desF-click:hover { text-decoration: none }
+.contentDes { padding:0}
+.desF-mobile { display: block; }
+.name2 { display: block }
+.desF { width: 100%; padding: 0px 0; margin-bottom:0; }
+.desF-item { width: 100%; float: none; margin: 0; border-bottom:1px solid #e4e4e4;position: relative; }
+.desF-item:last-child { border:none}
+.desF-submenu-item { margin-bottom: 7px; padding:7px 5px; border-top:1px solid #e4e4e4; transition: all ease 0.6;}
+.desF-item > a { padding: 10px 40px 10px 0 ; text-align: left; display: block;   -moz-transition: all 0.3s ease 0s;}
+.desF-click { display: block; right:0% }
+.desF-click i { background: url(/Claw/Sites/Default/Modules/EShop/Images/icon-cong.png) no-repeat center center}
+.desF-rotate { background: url(/Claw/Sites/Default/Modules/EShop/Images/icon-tru.png) no-repeat center center!important;/*-webkit-transform: rotate(180deg); -moz-transform: rotate(180deg); -ms-transform: rotate(180deg); -o-transform: rotate(180deg); transform: rotate(180deg);*/ }
+.desF-mobile-open { border-radius: 5px 5px 0 0; -webkit-border-radius: 5px 5px 0 0; -moz-border-radius: 5px 5px 0 0; }
+.desF-submenu-item:hover .desF-submenu2 { display: none }
+.desF-item a.last { width: auto }
+.desF-submenu { position: static; width: 100%; display: none }
+.desF-submenu-item a { color: $color-main-1}
+.desF-submenu2 { position: static; width: 100%; left: 0; top: 0 }
+.desF-item > a:hover, .desF-item a.active { text-decoration: none; color: $color-basic }
+.desF-submenu-item a:hover, .desF-submenu-item a.active { color: $color-basic !important; /*padding-left:5px;*/ }
+.desF-submenu-item a { padding: 5px 0px }
+.desF-item:hover .desF-submenu { display: none; }
+.desF-submenu-item a.email { color: $color-main-1 }
+.desF-submenu-item a.email:hover { color: $color-basic }
+.contentDes .last { width: 100% }
+.desF-submenu-item p { /*font-size:14px; line-height:18px;*/ margin-bottom:5px; display:block}
+
+
+	
+
+}
+/*===============================================
+    css tab info
+=================================================*/
+
+
+@mixin tab-info($color-main-1,$color-main-2){
+
+
+#horizontalTab-info{ }
+#horizontalTab-info ul.resp-tabs-list { margin:0px; padding: 0; border-bottom:0px solid #383838; width:100%; float:left; position:relative; z-index:9; }
+#horizontalTab-info .resp-tabs-list li { display: inline-block; margin: 0 0 -1px 0; padding: 10px 20px 10px 20px; width:auto; margin-bottom:-1px; list-style: none; cursor: pointer; float: left; border-right: 1px solid #dedcdd; border-top: 1px solid #dedcdd; line-height: 40px; display: block;  background:$color-main-2;  }
+#horizontalTab-info .resp-tabs-list li:last-child{border-right: 0px solid #dedcdd;}
+#horizontalTab-info .resp-tabs-container { border:1px solid #dedcdd; margin-bottom: 20px; padding:0 ; width:auto ;float:right; min-height:300px; background:#fff;}
+#horizontalTab-info h3.resp-accordion { cursor: pointer; padding: 5px; display: none; margin-bottom: 0 !important }
+#horizontalTab-info .resp-tab-content { display: none; padding: 0 0 10px 0; margin: 0; width: 100% }
+#horizontalTab-info .resp-tab-active { color: #fff!important; border: none; background:$color-main-1!important; margin: 5px 0; display:none;}
+#horizontalTab-info .resp-content-active, .resp-accordion-active { display: block; }
+#horizontalTab-info .resp-tab-content { padding:1px 0 0 0; width: 100% }
+#horizontalTab-info h3.resp-accordion { font-size: 14px }
+#horizontalTab-info h3.resp-accordion { background: none repeat scroll 0 0 #fff; border-top: 1px solid #ddd; padding: 7px 3%; width: 94%; font-family: "robotobold",Arial,sans-serif; text-transform:uppercase; font-size: 14px; font-weight: normal; }
+#horizontalTab-info h3.resp-accordion:hover { color: #fff!important; border: none; background: $color-main-1!important; margin: 5px 0; }
+#horizontalTab-info h3.resp-tab-active { }
+#horizontalTab-info h3.resp-tab-title:last-child { border-bottom: 12px solid #DDD !important; background: blue; }
+
+/*-----------Vertical tabs-----------*/
+#horizontalTab-info .resp-vtabs ul.resp-tabs-list { float: left; width: 30%; }
+#horizontalTab-info .resp-vtabs .resp-tabs-list li { display: block; padding: 15px 15px !important; margin: 0; cursor: pointer; float: none; }
+#horizontalTab-info .resp-vtabs .resp-tabs-container { padding: 0px; background-color: #fff; border: 1px solid #DDD; float: left; width: 68%; min-height: 250px; border-radius: 4px; clear: none; }
+#horizontalTab-info .resp-vtabs .resp-tab-content { border: none; }
+#horizontalTab-info .resp-vtabs li.resp-tab-active { border: 1px solid #DDD; border-right: none; background-color: #fff; position: relative; z-index: 1; margin-right: -1px !important; padding: 14px 15px 15px 14px !important; }
+#horizontalTab-info .resp-arrow { width: 0; height: 0; float: right; margin-top: 5px; border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 6px solid #000; margin-right:10px; }
+#horizontalTab-info h3.resp-tab-active span.resp-arrow { border: none; border-left: 5px solid transparent; border-right: 5px solid transparent; border-bottom: 6px solid #000; }
+#horizontalTab-info .resp-tabs-list li:hover{ background:$color-main-1!important; color: #fff!important;}
+#horizontalTab-info .contenttab{ width:auto; padding:20px; box-shadow:0 0 30px 0 rgba(0, 0, 0, 0.07); border: solid 1px #e3e3e3; margin-bottom:30px}
+
+/*-----------Accordion styles-----------*/
+#horizontalTab-info h3.resp-tab-active { background: #fff!important; width: 96%; padding: 0 2%; margin: 0; }
+#horizontalTab-info .resp-easy-accordion h3.resp-accordion {font-family: "robotobold",Arial,sans-serif; text-transform:uppercase; font-size: 14px; font-weight: normal; }
+#horizontalTab-info .resp-easy-accordion .resp-tab-content { border: 1px solid #DDD; }
+#horizontalTab-info .resp-easy-accordion .resp-tab-content:last-child { border-bottom: 1px solid #DDD !important; }
+#horizontalTab-info .resp-jfit { width: 100%; margin: 0px; }
+#horizontalTab-info .resp-tab-content-active { display: block; }
+#horizontalTab-info h3.resp-accordion:first-child { border-top: 0px solid #0f9dd1 !important; margin-bottom: 0 }
+
+/*==== Css tab infor  ====*/
+.wr-tab-info .resp-tabs-container { min-height:80px!important; border:none!important; margin-bottom:0px!important}
+.wr-tab-info .resp-tabs-list li { border-top:0!important; line-height:24px!important;}
+.wr-tab-info .resp-tabs-list li:last-child { border-right: 1px solid #dedcdd;}
+
+
+
+
+			/*===== css RWD =====*/
+			@media only screen and (max-width: 1024px) {
+			#horizontalTab-info .resp-tabs-container, #horizontalTab-info ul.resp-tabs-list { width:100%; margin-left:0%; margin-right:0%;}
+			}
+
+			@media only screen and (max-width: 980px) {
+			#horizontalTab-info .resp-tabs-list li { }
+			}
+			
+			/*Here your can change the breakpoint to set the accordion, when screen resolution changed*/
+			@media only screen and (max-width: 768px) {
+			#horizontalTab-info ul.resp-tabs-list { display: none; }
+			#horizontalTab-info .resp-tabs-container { min-height:30px!important; padding:0;}
+			#horizontalTab-info h3.resp-accordion { display: block; padding: 10px 10px; width: 100% !important; margin-top:0!important }
+			#horizontalTab-info .resp-vtabs .resp-tab-content { }
+			#horizontalTab-info .resp-vtabs .resp-tabs-container { border: none; float: none; width: 100%; min-height: initial; clear: none; }
+			#horizontalTab-info .resp-accordion-closed { display: none !important; }
+			#horizontalTab-info .resp-vtabs .resp-tab-content:last-child { border-bottom: 1px solid #282a2f !important;}
+			#horizontalTab-info h3.resp-tab-active { background: $color-main-1 !important; color:#fff!important;}
+			#horizontalTab-info h3.resp-accordion:hover { background:$color-main-1 !important; color:#fff!important;}
+			.wr-content-all { padding:0px 0;}
+
+			}
+
+
+}
+
+
+
+/*===============================================
+    css tab info
+=================================================*/
+
+
+@mixin tab-prodct($color1,$color2){
+	
+	
+	
+	
+	
+}
+
+/*===============================================
+    css slide_gallery
+=================================================*/
+@mixin slide_gallery($color-main-1){
+
+
+
+/* jssor slider arrow navigator skin 05 css */
+        /*
+        .jssora05l                  (normal)
+        .jssora05r                  (normal)
+        .jssora05l:hover            (normal mouseover)
+        .jssora05r:hover            (normal mouseover)
+        .jssora05l.jssora05ldn      (mousedown)
+        .jssora05r.jssora05rdn      (mousedown)
+        */
+        .jssora05l, .jssora05r { display:none; position: absolute; /* size of arrow element */ width: 40px; height: 60px;cursor: pointer; font: 60px/1 "Material Design Icons"; overflow: hidden; }
+        .jssora05l { background-position: -10px -40px; top:38%; right:17px; left:auto; }
+		.jssora05l:after {  content: "\F142"; color:rgba(0,0,0,0.2)  }
+		.jssora05r:after {  content: "\F141"; color:rgba(0,0,0,0.2)  }
+        .jssora05r { background-position: -70px -40px;  top:38%; left:0px; right:auto;}
+        .jssora05l:hover:after {  color:$color-main-1;  }
+        .jssora05r:hover:after {  color:$color-main-1; }
+        .jssora05l.jssora05ldn { background-position: -250px -40px; }
+        .jssora05r.jssora05rdn { background-position: -310px -40px; }
+		#jssor_1:hover .jssora05l, #jssor_1:hover .jssora05r { display:block}
+		
+		/*.wr-img-sl img{ border:1px solid #d7d5d5}*/
+		
+		@media screen and (max-width: 1190px){
+        .jssora05r:hover { background-position: -190px -40px; }
+		}
+		@media screen and (max-width: 750px){
+		.jssora05r { right:10px;}
+		}
+        /* jssor slider thumbnail navigator skin 01 css */
+        /*
+        .jssort01 .p            (normal)
+        .jssort01 .p:hover      (normal mouseover)
+        .jssort01 .p.pav        (active)
+        .jssort01 .p.pdn        (mousedown)
+        */
+		 .jssort01 { border-top:0 solid #e4e4e4; border-bottom:1px solid #d6d4d4}
+		 .jssort01 div .jssort01 { border-top:0 solid #e4e4e4; border-bottom:1px solid #d6d4d4}
+        .jssort01 .p { position: absolute; top: 0; left: 0; width: 72px; height: 56px; }
+        
+        .jssort01 .t { position: absolute; top: 0; left: 0; width: 100%;  height: 100%; border: none; }
+        
+        .jssort01 .w { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        
+        .jssort01 .c { position: absolute; top: 0; left: 0; width: 70px; height: 53px; border: #d6d4d4 1px solid; box-sizing: content-box;  background: url('/Claw/Sites/Default/Modules/EShop/Images/bg-img-slide-active.png')  -800px -800px no-repeat; }
+        
+        .jssort01 .pav .c { top: 0; left: 0; width: 70px; height: 53px; border: #333 1px solid;  background-position: 50% 50%; }
+        
+        .jssort01 .p:hover .c { top: 0; left: 0; width: 70px; height: 53px; border: #d6d4d4 1px solid; background-position: 50% 50%; }
+        
+        .jssort01 .p.pdn .c { background-position: 50% 50%; width: 70px; height: 53px; border: #d6d4d4 1px solid; }
+        
+        * html .jssort01 .c, * html .jssort01 .pdn .c, * html .jssort01 .pav .c {  /* ie quirks mode adjust */ width: 72px; height: 56px; }
+
+}
+
+
+@mixin tab-product($color-main-1,$color-main-2,$Desktop,$Mobile){
+
+$mode-Desktop:$Desktop;
+$mode-Mobile:$Mobile;
+
+
+
+#horizontalTab ul.resp-tabs-list { margin:0px; padding: 0; border-bottom:0px solid #383838; width:100%; float:left; position:relative; z-index:999999; }
+#horizontalTab .resp-tabs-list li {  padding: 5px 20px; margin: 0; width:auto; margin-bottom:-1px; list-style: none; cursor: pointer; float: left; border-left: 1px solid #dedcdd; border-top: 1px solid #dedcdd; line-height: 40px; display: block;   font-weight: normal; }
+#horizontalTab .resp-tabs-list li:last-child{border-right: 1px solid #dedcdd;}
+#horizontalTab .resp-tabs-container { border:1px solid #dedcdd; margin-bottom: 20px; padding:0; width:100%; float:right; min-height:300px; background:#fff;}
+#horizontalTab .resp-tab-content { display: none; margin: 0; width: 100%;padding:0;  }
+#horizontalTab .resp-tab-active {  border: none; margin: 5px 0; display:none;}
+#horizontalTab .resp-content-active, .resp-accordion-active { display: block; }
+#horizontalTab h3.resp-accordion {cursor: pointer; padding: 5px; display: none; margin-bottom: 0 !important; background: none repeat scroll 0 0 #fff; border-top: 1px solid #ddd; padding: 7px 3%; width: 94%;  text-transform:uppercase; font-size: 14px; font-weight: normal; }
+#horizontalTab h3.resp-accordion:hover { background-color:#fff;}
+#horizontalTab h3.resp-tab-title:last-child { border-bottom: 12px solid #DDD !important; background: blue; }
+
+/*-----------Vertical tabs-----------*/
+#horizontalTab .resp-vtabs ul.resp-tabs-list { float: left; width: 30%; }
+#horizontalTab .resp-vtabs .resp-tabs-list li { display: block; padding: 15px 15px !important; margin: 0; cursor: pointer; float: none; }
+#horizontalTab .resp-vtabs .resp-tabs-container { padding: 0px; background-color: #fff; border: 1px solid #DDD; float: left; width: 68%; min-height: 250px; @include border-radius(4px); clear: none; }
+#horizontalTab .resp-vtabs .resp-tab-content { border: none; }
+#horizontalTab .resp-vtabs li.resp-tab-active { border: 1px solid #DDD; border-right: none; background-color: #fff; position: relative; z-index: 1; margin-right: -1px !important; padding: 14px 15px 15px 14px !important; }
+#horizontalTab .resp-arrow { width: 0; height: 0; float: right; margin-top: 5px; border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 6px solid #000; margin-right:10px; }
+#horizontalTab h3.resp-tab-active span.resp-arrow { border: none; border-left: 5px solid transparent; border-right: 5px solid transparent; border-bottom: 6px solid #000; }
+#horizontalTab .resp-tabs-list li:hover{ }
+#horizontalTab .contenttab{ width:100%; position:relative; padding:20px 0; }
+#horizontalTab .contenttab:after{ width:2px; height:100%; background:transparent; position:absolute; right:0px; top:0; border:0; content:""; z-index:9}
+
+/*-----------Accordion styles-----------*/
+/*#horizontalTab h3.resp-tab-active { background: #fff!important; width: 96%; padding: 0 2%; margin: 0; border-bottom: 1px solid #ddd; }*/
+#horizontalTab .resp-easy-accordion h3.resp-accordion { text-transform:uppercase; font-size: 14px; font-weight: normal; }
+#horizontalTab .resp-easy-accordion .resp-tab-content { border: 1px solid #DDD; }
+#horizontalTab .resp-easy-accordion .resp-tab-content:last-child { border-bottom: 1px solid #DDD !important; }
+#horizontalTab .resp-jfit { width: 100%; margin: 0px; }
+#horizontalTab .resp-tab-content-active { display: block; }
+#horizontalTab h3.resp-accordion:first-child { border-top: 0px solid #282a2f !important; margin-bottom: 0 }
+
+/*==== Css tab infor silde ====*/
+.wr-tab-info .resp-tabs-container { min-height:80px!important; border:none!important; margin-bottom:0px!important}
+.wr-tab-info .resp-tabs-list li { border-top:0!important; line-height:24px!important;}
+.wr-tab-info .resp-tabs-list li:last-child { border-right: 1px solid #dedcdd;}
+
+.resp-tabs-list { width: auto !important; }
+
+
+
+			/*===== css RWD =====*/
+			@media only screen and (max-width: $mode-Desktop) {
+			#horizontalTab .resp-tabs-container, #horizontalTab ul.resp-tabs-list { width: 100%;}
+			}
+
+			/*Here your can change the breakpoint to set the accordion, when screen resolution changed*/
+			@media only screen and (max-width: 1024px) {
+			#horizontalTab {	text-align:left!important;}
+			#horizontalTab ul.resp-tabs-list { display: none!important; }
+			#horizontalTab .resp-tabs-container { min-height:30px!important; padding:0;}
+			#horizontalTab h3.resp-accordion { display: block; padding: 10px 10px; width: 100% !important; margin-top:0!important }
+			#horizontalTab .resp-vtabs .resp-tab-content { }
+			#horizontalTab .resp-vtabs .resp-tabs-container { border: none; float: none; width: 100%; min-height: initial; clear: none; }
+			#horizontalTab .resp-accordion-closed { display: none !important; }
+			#horizontalTab .resp-vtabs .resp-tab-content:last-child { border-bottom: 1px solid #282a2f !important;}
+			#horizontalTab h3.resp-tab-active { background:$color-main-1!important; color:#fff}
+			#horizontalTab h3.resp-accordion:hover { background:$color-main-1!important; color:#fff;}
+			.wr-content-all { padding:0;}
+
+			}
+
+}
+
+
+
+

@@ -1,0 +1,90 @@
+
+
+@mixin login_page($color-basic,$color-main-1,$color-main-2){
+
+
+.i-refresh { font-size:26px; line-height:1.15; margin-left:10px; color:$color-main-1; 
+			&:hover  { color:$color-main-2;  }
+			&:focus  { color:$color-main-1  }
+			
+			  }
+
+
+
+/* ==== css login box ==== */
+.wr-login-page { margin-bottom:40px; margin-top:0; float:left; width:100%;}
+.wr-login-page .wr-content-tabs { padding:20px;}
+
+.input-block-level{ width:100%; float:left; margin-bottom:10px; border:1px solid #e5e5e5; min-height:30px;padding:0 2%;}
+.input-block-level .input-txt { width:100%; padding:3px 3%; float:left; color:$color-basic; background:none; border:none; line-height:26px;}
+.input-block-level .link-phone-inpput {float:left; color:$color-basic; background:none; border:none; line-height:26px;}
+.title_login { margin-bottom:20px; font-size:16px;}
+
+.col-left-login { width:55%; float:left}
+.col-right-login { width:33%; margin-left:2%; float:right}
+.col-right-login > div { font-size:inherit; margin-bottom:20px;}
+.wr_text_FAQ { width:100%; float:left; clear:both; margin:10px 0 20px}
+.col-left-login label { /*float:left;*/ font-size:14px; margin:5px 0; font-weight:normal;display:inline-block}
+
+
+
+.col-left-login .error { width:100%; float:left; clear:both; color:#f20055; font-size:14px; margin-bottom:5px;}
+.check-remem { margin:7px 10px 5px 0!important; float:left;}
+.wr_capcha { width:100%; float:left; clear:both; margin:10px 0;}
+.txt_capcha { max-width:180px; float:left; background: white none repeat scroll 0 0;  border: 1px solid #e5e5e5; border-radius: 0; height: auto; min-height:30px; padding: 0 2%; width: 96%;}
+.captchaImage { float:left; margin-left:5px;}
+//.wr_capcha .refreshCaptcha { background: rgba(0, 0, 0, 0) url(../images/all/refresh.png) no-repeat scroll left top; float: left; height: 25px; margin: 3px 10px ; overflow: hidden; text-indent: -9999em;  width: 32px;}
+.btn_login { background:$color-main-1; padding:7px 30px!important; color:#fff; float:left; clear:both; margin:10px 0!important; height:auto!important; min-width:10px!important; line-height:24px!important; font-size:16px!important;border:none}
+.btn_login:hover { color:#fff; background:$color-main-2; text-decoration:none}
+.wr-register { width:100%; float:left; clear:both; font-size:14px;}
+.wr_text_FAQ span { font-size:14px;}
+.login-so { width:100ˆ; float:left;}
+.login-so a { float:left; clear:both; margin-bottom:10px;height:44px; min-width:250px; width:auto; padding-left:60px; padding-right:20px; float:left; font-size:16px; line-height:40px;color:#fff}
+.login-so a.login-fb {border:1px solid #45619d; color:#45619d; background:url(../images/all/login-facebook.png) no-repeat left center}
+.login-so a.login-g { border:1px solid #d73d32; color:#d73d32; background:url(../images/all/login-google.png) no-repeat left center}
+.login-so a.login-t {  border:1px solid #49c8f5; color:#49c8f5; background:url(../images/all/login-twitter.png) no-repeat left center}
+.login-so a.login-fb:hover, .login-so a.login-g:hover, .login-so a.login-t:hover { text-decoration:none; color:#f20055;}
+.wr-login-page .nav {margin-bottom:0px;margin-left: 0;list-style: none; padding-bottom:0}
+.wr-login-page .nav>li>a {	display: block}
+.wr-login-page .nav>li>a:hover, .wr-login-page .nav>li>a:focus {text-decoration: none;	background-color: #eee}
+.wr-login-page .nav-tabs, .wr-login-page .nav-pills {*zoom:1}
+.wr-login-page .nav-tabs:before, .wr-login-page .nav-pills:before, .wr-login-page .nav-tabs:after, .wr-login-page .nav-pills:after {display: table;line-height: 0;content: ""}
+.wr-login-page .nav-tabs:after, .wr-login-page .nav-pills:after {clear: both}
+.wr-login-page .nav-tabs>li, .wr-login-page .nav-pills>li {float: left}
+.wr-login-page .nav-tabs>li>a, .wr-login-page .nav-pills>li>a {	padding-right: 12px;padding-left: 12px;margin-right: 2px;line-height: 14px;	color:$color-basic;}
+.wr-login-page .nav-tabs>li>a:hover { color:f20055}
+.wr-login-page .nav-tabs {	border-bottom: 1px solid #ddd; font-size:18px;}
+.wr-login-page .nav-tabs>li {	margin-bottom: -1px}
+.wr-login-page .nav-tabs>li>a {padding-top: 8px;padding-bottom: 8px;line-height: 20px;	border: 1px solid transparent;	-webkit-border-radius: 4px 4px 0 0;	-moz-border-radius: 4px 4px 0 0;	border-radius: 4px 4px 0 0}
+.wr-login-page .nav-tabs>li>a:hover, .wr-login-page .nav-tabs>li>a:focus {	border-color: #eee #eee #ddd}
+.wr-login-page .nav-tabs>.active>a, .wr-login-page .nav-tabs>.active>a:hover, .wr-login-page .nav-tabs>.active>a:focus {	color: $color-basic; cursor: default;background-color: #fff;border: 1px solid #ddd;border-bottom-color: transparent}
+.wr-login-page .nav-pills>li>a {padding-top: 8px;	padding-bottom: 8px;margin-top: 2px;margin-bottom: 2px;-webkit-border-radius: 5px;	-moz-border-radius: 5px;border-radius: 5px}
+.wr-login-page .nav-pills>.active>a, .wr-login-page .nav-pills>.active>a:hover, .wr-login-page .nav-pills>.active>a:focus {	color: #fff;background-color: #08c}
+.wr-login-page .tab-content {	overflow: auto;	margin-top:-1px;border:1px solid #ddd;border-top:0px;}
+.wr-login-page .tabs-left>.nav-tabs>li, .wr-login-page .tabs-right>.nav-tabs>li {float: none}
+.wr-login-page .tabs-left>.nav-tabs>li>a, .wr-login-page .tabs-right>.nav-tabs>li>a {min-width: 74px;	margin-right: 0;margin-bottom: 3px}
+.wr-login-page .tabs-left>.nav-tabs {	float: left;margin-right: 19px;border-right: 1px solid #ddd}
+.wr-login-page .tabs-left>.nav-tabs>li>a {margin-right: -1px;-webkit-border-radius: 4px 0 0 4px;-moz-border-radius: 4px 0 0 4px;	border-radius: 4px 0 0 4px}
+.wr-login-page .tabs-left>.nav-tabs>li>a:hover, .wr-login-page .tabs-left>.nav-tabs>li>a:focus {border-color: #eee #ddd #eee #eee}
+.wr-login-page .tabs-left>.nav-tabs .active>a, .wr-login-page .tabs-left>.nav-tabs .active>a:hover, .wr-login-page .tabs-left>.nav-tabs .active>a:focus {	border-color: #ddd transparent #ddd #ddd;*border-right-color:#fff}
+.wr-login-page .tabs-right>.nav-tabs {float: right;margin-left: 19px;border-left: 1px solid #ddd}
+.wr-login-page .tabs-right>.nav-tabs>li>a {margin-left: -1px;-webkit-border-radius: 0 4px 4px 0;-moz-border-radius: 0 4px 4px 0;	border-radius: 0 4px 4px 0}
+.wr-login-page .tabs-right>.nav-tabs>li>a:hover, .wr-login-page .tabs-right>.nav-tabs>li>a:focus {border-color: #eee #eee #eee #ddd}
+.wr-login-page .tabs-right>.nav-tabs .active>a, .wr-login-page .tabs-right>.nav-tabs .active>a:hover, .wr-login-page .tabs-right>.nav-tabs .active>a:focus {border-color: #ddd #ddd #ddd transparent;*border-left-color:#fff}
+
+
+/*=========================================== css RWD  =========================================*/
+
+
+		@media screen and (max-width: 830px){
+
+		/*-- css check out 1 2 3 login --*/
+		.col-left-login { width:100%; float:left; margin-bottom:20px;}
+		.col-right-login { width:100%; margin-left:0; float:left; padding-top:20px; border-top:1px solid #CCC; clear:both;}
+
+
+		}
+
+
+}
+
